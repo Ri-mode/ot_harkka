@@ -1,0 +1,30 @@
+kurssit/
+└── ot_s2020
+    ├── ot_viikko1
+    │   ├── eka.txt
+    │   ├── kolmas.txt
+    │   ├── stuff
+    │   │   └── jotain.txt
+    │   └── tiedostoja
+    │       ├── file22
+    │       └── file3
+    └── viikko1
+        └── Unicafe
+            ├── pom.xml
+            └── src
+                ├── main
+                │   └── java
+                │       └── com
+                │           └── mycompany
+                │               └── unicafe
+                │                   ├── Kassapaate.java
+                │                   ├── Maksukortti.java
+                │                   └── Paaohjelma.java
+                └── test
+                    └── java
+                        └── com
+                            └── mycompany
+                                └── unicafe
+                                    └── MaksukorttiTest.java
+
+
