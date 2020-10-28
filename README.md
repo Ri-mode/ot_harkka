@@ -1,3 +1,4 @@
 # OhTe, harjoitukset
-
-Tähän _jatkossa **enemmän** tekstiä_ 
+## Tehtävät
+### Viikko 1
+https://github.com/Ri-mode/ot_harkka/blob/master/laskarit/viikko1/gitlog.txt
