@@ -1,8 +1,9 @@
 # OhTe, harjoitukset
 ## Tehtävät
-### Viikko 1
-[gitlog.txt](https://github.com/Ri-mode/ot_harkka/blob/master/laskarit/viikko1/gitlog.txt)
+### Viikko 2
+[JUnit-harjoittelu](https://github.com/Ri-mode/ot_harkka/blob/master/laskarit/viikko2/Unicafe.png)
 
-[komentorivi.txt](https://github.com/Ri-mode/ot_harkka/blob/master/laskarit/viikko1/komentorivi.txt)
+### Harjoitustyö
+[Vaatimusmäärittely](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/vaatimusmaarittely.md)
 
-Muutos paikallinen
+[Työaikakirjanpito](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/tuntikirjanpito.md)
