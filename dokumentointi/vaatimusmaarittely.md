@@ -1,0 +1,48 @@
+# Vaatimusmäärittely
+
+## Sovelluksen tarkoitus
+
+Luodaan sovelluksena muunnelma legendaarisesta Minesweeper-pelistä.
+Sovelluksen on toimittava Linux-ympäristössä ja se ohjelmoidaan Javalla.
+
+## Perusversion toiminnallisuudet
+
+### Alkuvalikko
+
+* Graafinen pelin aloitus
+
+### Pelivalikko
+
+* Aluksi 25x25 pelialue
+  * Arvotaan pommit
+    - Näkyvissä olevat pommit
+    - Pommien etsintä,
+    - Aluksi tyhjä alue 0 on klikkailtava itse auki    - Algoritmi tyhjän alueen  näyttämiseen
+
+* Ajanmittaus
+
+* Myöhemmin
+  * Pari pelialuetta lisää
+
+### Huipputulosten tallennus ja muita laskureita
+
+* High score -tilastot tallennetaan verkkoon
+
+* Pommeja löytynyt/löytämättä -laskuri
+
+
+## Jatkokehitysideoita
+
+Perusversion toimiessa sovellusta täydennetään seuraavilla ominaisuuksilla.
+
+* Pommien purkaminen
+
+* Raivauspommi, jolla saa räjäytettyä 1x1, tai 3x3 alueen
+ * Käytännöllinen tilanteissa, joissa joutuu arvaamaan
+ * Raivauspommin käyttäminen lisää käytettyä aikaa X sekuntia
+
+* Valittavissa oleva pelialue ja pommien määrä
+
+* Erilaisia pelitiloja
+ * Edetään peliruudun reunalta toiselle reunalle
+
