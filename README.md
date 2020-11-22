@@ -12,4 +12,3 @@ Sovellus on legendaarinen Minesweeper-peli. Sovellusta on mahdollista käyttää
 
 [Työaikakirjanpito](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/tuntikirjanpito.md)
 
-testi
