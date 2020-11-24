@@ -7,7 +7,9 @@ Miinakentälle arvotut pommit näkyvät tällä hetkellä numerona 9. Miinakent�
 
 [Sovelluksen koodi](https://github.com/Ri-mode/ot_harkka/tree/master/Miinanraivaaja)
 
-[Vaatimusmäärittely](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/vaatimusmaarittely.md)
+[Sovelluksen Vaatimusmäärittely](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/vaatimusmaarittely.md)
+
+[Sovelluksen arkkitehtuuri](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/arkkitehtuuri.md)
 
 [Työaikakirjanpito](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/tuntikirjanpito.md)
 
