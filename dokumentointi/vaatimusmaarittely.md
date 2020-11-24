@@ -9,13 +9,13 @@ Sovelluksen on toimittava Linux-ympäristössä ja se ohjelmoidaan Javalla.
 
 ### Alkuvalikko
 
-* Graafinen pelin aloitus
+* Graafinen pelin aloitus - tehty
 
 ### Pelivalikko
 
-* Aluksi 25x25 pelialue
-  * Arvotaan pommit
-    - Näkyvissä olevat pommit
+* Aluksi 10x10 pelialue - tehty
+  * Arvotaan pommit - tehty
+    - Näkyvissä olevat pommit - tehty
     - Pommien etsintä,
     - Aluksi tyhjä alue 0 on klikkailtava itse auki    - Algoritmi tyhjän alueen  näyttämiseen
 
