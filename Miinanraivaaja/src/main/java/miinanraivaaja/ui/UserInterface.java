@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import miinanraivaaja.domain.Minefield;
 
 /**
  *
@@ -50,10 +51,14 @@ public class UserInterface extends Application {
     private GridPane createGamePane(int n) {
 
         GridPane gamePane = new GridPane();
+        Minefield field = new Minefield(n, n, n);
+        field.scatterMines();
 
-        for (int x = 1; x <= n; x++) {
-            for (int y = 1; y <= n; y++) {
-                gamePane.add(new Button("*"), x, y);
+        for (int j = 1; j <= n; j++) {
+            for (int i = 1; i <= n; i++) {
+                gamePane.add(new Button(Integer.toString(field.cell(j, i))), i, j);
+                
+                
             }
         }
         gamePane.setGridLinesVisible(true);

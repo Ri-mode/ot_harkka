@@ -8,7 +8,6 @@
     <suppress files="miinanraivaaja.ui.UserInterface.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="miinanraivaaja.ui.Miinanraivaaja.java" checks="[a-zA-Z0-9]*"/>
     <!--
-        <suppress files="todoapp.ui.TodoUi.java" checks="[a-zA-Z0-9]*"/>
-        <suppress files="todoapp.ui.GuiHelper.java" checks="[a-zA-Z0-9]*"/>
+       
     -->
 </suppressions>
