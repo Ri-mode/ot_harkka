@@ -46,10 +46,32 @@ public class Minefield {
         }
     }
 
+    public void prepareField() {
+        for (int j = 1; j < field.length - 1; j++) {
+            for (int i = 1; i < field[j].length - 1; i++) {
+                if (field[j][i] != 9) {
+                    field[j][i] = countNearByMines(j, i);
+                }
+            }
+        }
+    }
+
+    public int countNearByMines(int y, int x) {
+        int nearByMines = 0;
+        for (int j = y - 1; j < y + 2; j++) {
+            for (int i = x - 1; i < x + 2; i++) {
+                if (field[j][i] == 9) {
+                    nearByMines++;
+                }
+            }
+        }
+        return nearByMines;
+    }
+
     public int cell(int y, int x) {
         return field[y][x];
     }
-    
+
     public int getAmmount() {
         return mines;
     }

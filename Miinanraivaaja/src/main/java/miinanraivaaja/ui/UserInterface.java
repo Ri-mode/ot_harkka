@@ -53,6 +53,7 @@ public class UserInterface extends Application {
         GridPane gamePane = new GridPane();
         Minefield field = new Minefield(n, n, n);
         field.scatterMines();
+        field.prepareField();
 
         for (int j = 1; j <= n; j++) {
             for (int i = 1; i <= n; i++) {
