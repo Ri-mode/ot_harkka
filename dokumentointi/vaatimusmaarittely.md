@@ -16,6 +16,7 @@ Sovelluksen on toimittava Linux-ympäristössä ja se ohjelmoidaan Javalla.
 * Aluksi 10x10 pelialue - tehty
   * Arvotaan pommit - tehty
     - Näkyvissä olevat pommit - tehty
+    - Ruudun viereisten pommien lukumäärä laskettu valmiiksi - tehty
     - Pommien etsintä,
     - Aluksi tyhjä alue 0 on klikkailtava itse auki    - Algoritmi tyhjän alueen  näyttämiseen
 
