@@ -21,6 +21,24 @@ public class MinefieldTest {
     public MinefieldTest() {
     }
     
+    @Test 
+    public void countNearByMinesGivesRightAmmount() {
+        int[][] yx = {{0, 0, 0, 0}, {0, 0, 9, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Minefield small = new Minefield(yx, 1);
+        
+        int nearBy11 = small.countNearByMines(1, 1);
+        assertTrue(nearBy11 == 1);
+    }
+    
+    @Test
+    public void prepareFieldCorrectly() {
+        int[][] yx = {{0, 0, 0, 0}, {0, 9, 9, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Minefield small = new Minefield(yx, 1);
+        
+        small.prepareField();
+        assertTrue(small.cell(2, 2) == 2);
+    }
+    
     @Test
     public void sameAmmountOfMines() {
         Minefield m1 = new Minefield(10, 10, 10);
@@ -28,9 +46,5 @@ public class MinefieldTest {
         assertTrue(m1.equals(m2));
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
 }

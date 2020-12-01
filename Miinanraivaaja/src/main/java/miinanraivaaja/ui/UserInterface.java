@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import miinanraivaaja.domain.Minefield;
+import miinanraivaaja.domain.Playerfield;
 
 /**
  *
@@ -34,8 +35,12 @@ public class UserInterface extends Application {
         HBox buttons = new HBox();
 
         Button startGame = new Button("Aloita peli");
+        Button showMines = new Button("Näytä miinat");
+        
+//        Scene showMineField = new Scene(showMines);
 
         buttons.getChildren().add(startGame);
+        buttons.getChildren().add(showMines);
 
         GridPane gamePane = createGamePane(10);
 
@@ -43,28 +48,58 @@ public class UserInterface extends Application {
         primaryPane.setCenter(gamePane);
 
         Scene primaryScene = new Scene(primaryPane);
+        
+//        showMines.setOnAction((event) -> {
+//            GridPane mineFieldPane = gamePane;
+//            Scene showMineField = new Scene(mineFieldPane);
+//            primaryStage.setScene(showMineField);
+//        });
 
         primaryStage.setScene(primaryScene);
         primaryStage.show();
     }
 
+    // Tämä tarvinnee refraktoroida omaksi luokakseen, koska tämän
+    // hetkisellä toteutuksella tulee ongelmia siirryttäessä ikkunasta toiseen
     private GridPane createGamePane(int n) {
 
-        GridPane gamePane = new GridPane();
-        Minefield field = new Minefield(n, n, n);
-        field.scatterMines();
-        field.prepareField();
+//        GridPane gamePane = new GridPane();
+        Minefield mField = new Minefield(n, n, n);
+        Playerfield pField = new Playerfield(n, n);
+        mField.scatterMines();
+        mField.prepareField();
 
+        return this.openMinePane(mField, pField, n);
+
+//        for (int j = 1; j <= n; j++) {
+//            for (int i = 1; i <= n; i++) {
+//                gamePane.add(new Button(Integer.toString(mField.cell(j, i))), i, j);
+//            }
+//        }
+//        gamePane.setGridLinesVisible(true);
+//        return gamePane;
+    }
+
+    private GridPane openMinePane(Minefield mField, Playerfield pField, int n) {
+        GridPane gamePane = new GridPane();
         for (int j = 1; j <= n; j++) {
             for (int i = 1; i <= n; i++) {
-                gamePane.add(new Button(Integer.toString(field.cell(j, i))), i, j);
-                
-                
+                gamePane.add(new Button(Integer.toString(mField.cell(j, i))), i, j);
             }
         }
         gamePane.setGridLinesVisible(true);
         return gamePane;
+    }
 
+    private GridPane openPlayerPane(Minefield mField, Playerfield pField, int n) {
+        GridPane playerPane = new GridPane();
+        for (int j = 1; j <= n; j++) {
+            for (int i = 1; i <= n; i++) {
+                playerPane.add(new Button(Integer.toString(pField.cell(j, i))), i, j);
+            }
+        }
+        playerPane.setGridLinesVisible(true);
+        return playerPane;
     }
 
     @Override
