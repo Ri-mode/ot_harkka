@@ -1,5 +1,5 @@
 Pelaajanäkymän ruudun hiiren vasemman napin painalluksen sekvenssikaavio (mökkiversio).
-![Sekvenssikaavio](dokumentointi/Sekvenssikaavio01.jpg)
+![Sekvenssikaavio](/dokumentointi/Sekvenssikaavio.jpg)
 
 
 Ensimmäinen hahmotelma luokkakaavioksi.
