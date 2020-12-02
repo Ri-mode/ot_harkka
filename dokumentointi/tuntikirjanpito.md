@@ -10,5 +10,5 @@
 | 29.11  |  1   | Sovelluksen logiikan pohdintaa |
 | 30.11  |  4   | Miinakentän ruutujen viereisten miinojen lukumäärän laskennan koodaus, pelaajakentän lisäys |
 |  1.12  |  5   | Haarautumatestauksen lisäys miinakenttä-luokalle, Github-releasen teko, JafaFX toiminnalisuuden uudelleen opiskelua. |
-|  2.12  |  2   | Sekvenssikaavion piirtäminen, Githubin sisällön päivitys |
-| yht.   | 38   | |
+|  2.12  |  4   | Sekvenssikaavion piirtäminen, Githubin repon muokkaus vaatimusten mukaiseksi |
+| yht.   | 40   | |
