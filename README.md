@@ -1,9 +1,8 @@
 # Miinanraivaaja OhTe harjoitustyö
-## Tehtävät
-### Harjoitustyö
+
 Sovellus on legendaarinen Minesweeper-peli. Sovellusta on mahdollista käyttää Linux-ympäristössä Java 11 versiolla. 
 
-Miinakentälle arvotut pommit näkyvät tällä hetkellä numerona 9. Miinakentän pommittomat ruudut ovat numerolla 0. Seuraavaksi ruuduille määritetään montako pommia on naapurustossa ja tähän käytetään lukuja 0-8.
+Miinakentälle arvotut pommit näkyvät tällä hetkellä numerona 9. Miinakentän pommittomat ruudut ovat numerolla 0-8 sen mukaan montako pomia ruudun ympärillä on. Seuraavaksi toteutetaan käyttäjän interaktio sovelluksen kanssa.
 
 [Viikon 5 Release](https://github.com/Ri-mode/ot_harkka/releases/tag/viikko5)
 
@@ -15,3 +14,25 @@ Miinakentälle arvotut pommit näkyvät tällä hetkellä numerona 9. Miinakent�
 
 [Työaikakirjanpito](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/tuntikirjanpito.md)
 
+## Ohjeet
+Seuraavat /Miinanraivaaja -hakemistossa:
+
+Ohjelman ajaminen:
+
+mvn compile exec:java -Dexec.mainClass=miinanraivaaja.ui.Miinanraivaaja
+
+Jar-tiedoston generointi hakemistoon /target/
+
+mvn package
+
+Ohjelman testaus:
+
+mvn test
+
+Jacoco -testiraportin luonti hakemistoon /target/site/jacoco/
+
+mvn test jacoco:report
+
+Checkstyle -testiraportin luonti hakemistoon /target/site/
+
+mvn test checkstyle:checkstyle
