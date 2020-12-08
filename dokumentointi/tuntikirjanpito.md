@@ -11,4 +11,8 @@
 | 30.11  |  4   | Miinakentän ruutujen viereisten miinojen lukumäärän laskennan koodaus, pelaajakentän lisäys |
 |  1.12  |  5   | Haarautumatestauksen lisäys miinakenttä-luokalle, Github-releasen teko, JafaFX toiminnalisuuden uudelleen opiskelua. |
 |  2.12  |  4   | Sekvenssikaavion piirtäminen, Githubin repon muokkaus vaatimusten mukaiseksi |
-| yht.   | 40   | |
+|  3.12  |  1   | Testeihin haarautumiskattavuutta |
+|  4.12  |  1   | Testeihin lisää haarautumiskattavuutta |
+|  6.12  |  3   | Pelilogiikan omaksi luokakseen refraktoroinnin aloitus |
+|  8.12  | 10   | Refraktorointia, interaktiivisuutta, pelilogiikka toimii, lisää testejä, Github repon kunnostusta |
+| yht.   | 55   | |
