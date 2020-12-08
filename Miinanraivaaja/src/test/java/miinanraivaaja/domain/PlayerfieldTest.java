@@ -12,17 +12,37 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 /**
  *
  * @author antti
  */
-public class MinesTest {
+public class PlayerfieldTest {
+    
+    public PlayerfieldTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
     
     @Test
-    public void amountOfMinesRight() {
-        Mines m1 = new Mines(10);
-        Mines m2 = new Mines(10);
-        assertTrue(m1.equals(m2));
+    public void playerFieldPreparedCorrectlyInPlayArea() {
+        Playerfield pField = new Playerfield(10, 10);
+        pField.preparePlayerField();
+        assertTrue(pField.checkCell(1, 1) == -1);
     }
 
     // TODO add test methods here.

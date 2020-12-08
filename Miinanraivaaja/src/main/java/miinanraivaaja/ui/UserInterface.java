@@ -81,7 +81,7 @@ public class UserInterface extends Application {
         GridPane playerPane = new GridPane();
         for (int j = 1; j <= gLogic.getN(); j++) {
             for (int i = 1; i <= gLogic.getN(); i++) {
-                String bName = Integer.toString(gLogic.getPlayerField().cell(j, i));
+                String bName = Integer.toString(gLogic.getPlayerField().checkCell(j, i));
                 Button nButton = buttonFactory(j, i, bName);
                 playerPane.add(nButton, j, i);
             }

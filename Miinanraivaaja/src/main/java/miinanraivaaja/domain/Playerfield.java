@@ -26,12 +26,12 @@ public class Playerfield {
     }
 
     public void flagCellMine(int y, int x) {
-        field[y][x] = 2;
+        field[y][x] = -2;
     }
     
-    public int cell(int y, int x) {
-        return field[y][x];
-    }
+//    public int cell(int y, int x) {
+//        return field[y][x];
+//    }
     
     public void preparePlayerField() {
         for (int j = 1; j < field.length - 1; j++) {
