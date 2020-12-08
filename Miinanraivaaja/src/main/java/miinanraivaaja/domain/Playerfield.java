@@ -33,4 +33,12 @@ public class Playerfield {
         return field[y][x];
     }
     
+    public void preparePlayerField() {
+        for (int j = 1; j < field.length - 1; j++) {
+            for (int i = 1; i < field[j].length - 1; i++) {
+                field[j][i] = -1;
+            }
+        }
+    }
+    
 }

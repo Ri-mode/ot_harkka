@@ -68,8 +68,9 @@ public class UserInterface extends Application {
         Playerfield pField = new Playerfield(n, n);
         mField.scatterMines();
         mField.prepareField();
+        pField.preparePlayerField();
 
-        return this.openMinePane(mField, pField, n);
+        return this.openPlayerPane(mField, pField, n);
 
 //        for (int j = 1; j <= n; j++) {
 //            for (int i = 1; i <= n; i++) {
@@ -101,6 +102,8 @@ public class UserInterface extends Application {
         playerPane.setGridLinesVisible(true);
         return playerPane;
     }
+    
+    
 
     @Override
     public void stop() {
