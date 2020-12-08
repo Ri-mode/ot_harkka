@@ -2,13 +2,17 @@
 
 Sovellus on legendaarinen Minesweeper-peli. Sovellusta on mahdollista käyttää Linux-ympäristössä Java 11 versiolla. 
 
-Miinakentälle arvotut pommit näkyvät tällä hetkellä numerona 9. Miinakentän pommittomat ruudut ovat numerolla 0-8 sen mukaan montako pomia ruudun ympärillä on. Seuraavaksi toteutetaan käyttäjän interaktio sovelluksen kanssa.
+Miinakentän avaamattomat ruudut on merkitty numerolla -1. Miinakentän pommittomat ruudut ovat numerolla 0-8 sen mukaan montako pomia ruudun ympärillä on. Joudut vielä muistamaan missä miinat ovat. Jatkossa epäillyt miinat voi merkitä lipulla (-2). Peliin lisätään pari suurempaa kenttää ja ajanotto. 
+
+[Viikon 6 Release](https://github.com/Ri-mode/ot_harkka/releases/tag/viikko6)
 
 [Viikon 5 Release](https://github.com/Ri-mode/ot_harkka/releases/tag/viikko5)
 
 [Sovelluksen koodi](https://github.com/Ri-mode/ot_harkka/tree/master/Miinanraivaaja)
 
 [Sovelluksen Vaatimusmäärittely](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/vaatimusmaarittely.md)
+
+[Sovelluksen käyttöohje](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/kayttoohje.md)
 
 [Sovelluksen arkkitehtuuri](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/arkkitehtuuri.md)
 
@@ -36,3 +40,7 @@ mvn test jacoco:report
 Checkstyle -testiraportin luonti hakemistoon /target/site/
 
 mvn test checkstyle:checkstyle
+
+Javadoc-ohjeen luonti:
+
+mvn javadoc:javadoc
