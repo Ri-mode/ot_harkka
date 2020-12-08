@@ -8,11 +8,7 @@ package miinanraivaaja.domain;
 import java.util.Random;
 
 /**
- * You test a random event by removing the random nature of the event. 
- * The same theory can be used for timestamps
- *
- * 
- * @author antti
+ * Luokka tarjoaa Minefield-olion ja metodeita miinakentän pyörittämiseen.
  */
 public class Minefield {
 
@@ -33,6 +29,12 @@ public class Minefield {
         this.mines = mines;
     }
 
+    /**
+     * Metodi arpoo miinat miinakentälle. Miinattomaan ruutuun arvotaan miina
+     * todennäköisyydellä 0.95. Miinakenttää käydään läpi kunnes on pudotetty
+     * oikea määrä miinoja.
+     */
+    
     public void scatterMines() {
         Random rnd = new Random();
 
@@ -54,7 +56,11 @@ public class Minefield {
         }
     }
     
-   
+    /**
+     * Metodi käy läpi miinakentän miinattomat ruudut ja laskee 
+     * countNearByMines-metodin avulla ruudun viereisissä ruuduissa
+     * olevien miinojen lukumäärän miinakentälle.
+     */
 
     public void prepareField() {
         for (int j = 1; j < field.length - 1; j++) {
@@ -66,6 +72,13 @@ public class Minefield {
         }
     }
 
+    /**
+     * Metodi laskee ruudun viereisissä ruuduissa olevien miinojen lukumäärän.
+     * 
+     * @param y Ruudun sarake
+     * @param x Ruudun rivi
+     * @return viereisten miinojen lukumäärä
+     */
     public int countNearByMines(int y, int x) {
         int nearByMines = 0;
         for (int j = y - 1; j < y + 2; j++) {
@@ -85,7 +98,13 @@ public class Minefield {
     public int getAmmount() {
         return mines;
     }
-
+    
+    /**
+     * Metodilla verrataan onko kahdella miinakentällä yhtä monta miinaa.
+     * 
+     * @param obj 
+     * @return 
+     */
     @Override
     public boolean equals(Object obj) {
         Minefield other = (Minefield) obj;

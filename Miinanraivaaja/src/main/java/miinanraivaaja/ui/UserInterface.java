@@ -6,7 +6,6 @@
 package miinanraivaaja.ui;
 
 import javafx.application.Application;
-import javafx.event.Event;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -16,8 +15,7 @@ import javafx.stage.Stage;
 import miinanraivaaja.logic.GameLogic;
 
 /**
- *
- * @author antti
+ * UI-luokka, jonka sisällä pyöritetään graafista JavaFX-sovellusta.
  */
 public class UserInterface extends Application {
 
@@ -28,7 +26,12 @@ public class UserInterface extends Application {
     public void init() {
 
     }
-
+    /**
+     * JavaFX:n avulla toteutettu graafinen käyttöliittymä.
+     * 
+     * @param primaryStage Käyttöliittymän perusnäkymä
+     * 
+     */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -61,11 +64,25 @@ public class UserInterface extends Application {
         this.primaryStage.setScene(primaryScene);
         this.primaryStage.show();
     }
-
+    
+    /**
+     * Metodi uuden pelilogiikan luontiin.
+     * 
+     * @param n Pelialueen mitat ja pommien lukumäärä
+     * 
+     * @return uusi pelilogiikka 
+     */
     private GameLogic createNewGame(int n) {
         return new GameLogic(n);
     }
 
+    /**
+     * Metodi miinakentän näyttämiseen alkuvalikossa.
+     * 
+     * @param gLogic Meneillään olevan pelin pelilogiikka
+     * 
+     * @return miinakenttä GridPanena
+     */
     private GridPane openMinePane(GameLogic gLogic) {
         GridPane gamePane = new GridPane();
         for (int j = 1; j <= gLogic.getN(); j++) {
@@ -76,7 +93,14 @@ public class UserInterface extends Application {
         gamePane.setGridLinesVisible(true);
         return gamePane;
     }
-
+    
+    /**
+     * Metodi pelaajanäkymän esittämiseen GridPane oliona.
+     * 
+     * @param gLogic Meneillään olevan pelin pelilogiikka
+     * 
+     * @return pelaajanäkyä GridPanena
+     */
     private GridPane drawPlayerPane(GameLogic gLogic) {
         GridPane playerPane = new GridPane();
         for (int j = 1; j <= gLogic.getN(); j++) {
@@ -89,7 +113,16 @@ public class UserInterface extends Application {
         playerPane.setGridLinesVisible(true);
         return playerPane;
     }
-
+    
+    /**
+     * Metodi pelaajakentän nappien luomiseen ja toiminnallisuuden
+     * toteuttamiseen.
+     * 
+     * @param y Napin sarake
+     * @param x Napin rivi
+     * @param name Napin nimi
+     * @return oikein toimiva nappi
+     */
     private Button buttonFactory(int y, int x, String name) {
         Button nButton = new Button(name);
         nButton.setOnAction((event) -> {

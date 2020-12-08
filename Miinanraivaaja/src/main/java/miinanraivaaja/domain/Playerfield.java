@@ -1,13 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
  */
 package miinanraivaaja.domain;
 
 /**
- *
- * @author antti
+ * Luokka tarjoaa Playerfield-olion, jonka avulla voidaan seurata pelaajan
+ * toimia ja pitää kirjaa pelaalle näkyvästä miinakentästä.
  */
 public class Playerfield {
 
@@ -28,6 +26,15 @@ public class Playerfield {
     public void flagCellMine(int y, int x) {
         field[y][x] = -2;
     }
+    
+    /**
+     * Metodi alustaa pelaajakentän pelialueen, jotta voidaan seurata
+     * pelajaan toimia.
+     * 
+     * @param   pelialue  Pelialueen valmistelu
+     * 
+     * @return pelialueen valmistelu
+     */
     
     public void preparePlayerField() {
         for (int j = 1; j < field.length - 1; j++) {
