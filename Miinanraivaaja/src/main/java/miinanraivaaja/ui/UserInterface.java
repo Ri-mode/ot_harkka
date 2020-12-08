@@ -6,6 +6,7 @@
 package miinanraivaaja.ui;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -21,7 +22,7 @@ import miinanraivaaja.logic.GameLogic;
 public class UserInterface extends Application {
 
     private GameLogic gameLogic;
-    
+    private Stage primaryStage;
 
     @Override
     public void init() {
@@ -30,7 +31,8 @@ public class UserInterface extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Miinanraivaaja");
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("Miinanraivaaja");
 
         this.gameLogic = this.createNewGame(10);
 
@@ -53,23 +55,24 @@ public class UserInterface extends Application {
 
         showMines.setOnAction((event) -> {
             Scene showMineField = new Scene(openMinePane(gameLogic));
-            primaryStage.setScene(showMineField);
+            this.primaryStage.setScene(showMineField);
         });
-        
 
-        primaryStage.setScene(primaryScene);
-        primaryStage.show();
+        this.primaryStage.setScene(primaryScene);
+        this.primaryStage.show();
     }
 
     private GameLogic createNewGame(int n) {
         return new GameLogic(n);
     }
+    
+    
 
     private GridPane openMinePane(GameLogic gLogic) {
         GridPane gamePane = new GridPane();
         for (int j = 1; j <= gLogic.getN(); j++) {
             for (int i = 1; i <= gLogic.getN(); i++) {
-                gamePane.add(new Button(Integer.toString(gLogic.getMineField().cell(j, i))), i, j);
+                gamePane.add(new Button(Integer.toString(gLogic.getMineField().cell(j, i))), j, i);
             }
         }
         gamePane.setGridLinesVisible(true);
@@ -80,7 +83,9 @@ public class UserInterface extends Application {
         GridPane playerPane = new GridPane();
         for (int j = 1; j <= gLogic.getN(); j++) {
             for (int i = 1; i <= gLogic.getN(); i++) {
-                playerPane.add(new Button(Integer.toString(gLogic.getPlayerField().cell(j, i))), i, j);
+                String bName = Integer.toString(gLogic.getPlayerField().cell(j, i));
+                Button nButton = buttonFactory(j, i, bName);
+                playerPane.add(nButton, j, i);
             }
         }
         playerPane.setGridLinesVisible(true);
@@ -88,8 +93,14 @@ public class UserInterface extends Application {
     }
 
     private Button buttonFactory(int y, int x, String name) {
-
-        return (new Button(name));
+        Button nButton = new Button(name);
+        nButton.setOnAction((event) -> {
+            gameLogic.getPlayerField().setCell(y, x, gameLogic.getMineField().cell(y, x));
+//            System.out.println(gameLogic.getPlayerField().checkCell(y, x));
+            Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));
+            this.primaryStage.setScene(showPlayerField);
+        });
+        return (nButton);
     }
 
     @Override

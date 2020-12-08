@@ -21,8 +21,8 @@ public class Playerfield {
         return field[y][x];
     }
 
-    public void openCell(int y, int x) {
-        field[y][x] = 1;
+    public void setCell(int y, int x, int value) {
+        field[y][x] = value;
     }
 
     public void flagCellMine(int y, int x) {
