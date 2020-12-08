@@ -29,10 +29,6 @@ public class Playerfield {
         field[y][x] = -2;
     }
     
-//    public int cell(int y, int x) {
-//        return field[y][x];
-//    }
-    
     public void preparePlayerField() {
         for (int j = 1; j < field.length - 1; j++) {
             for (int i = 1; i < field[j].length - 1; i++) {
