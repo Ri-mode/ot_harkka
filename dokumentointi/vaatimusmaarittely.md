@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Luodaan sovelluksena muunnelma legendaarisesta Minesweeper-pelistä.
+Luodaan sovelluksena muunnelma legendaarisesta Miinaharava-pelistä.
 Sovelluksen on toimittava Linux-ympäristössä ja se ohjelmoidaan Javalla.
 
 ## Perusversion toiminnallisuudet
@@ -17,8 +17,9 @@ Sovelluksen on toimittava Linux-ympäristössä ja se ohjelmoidaan Javalla.
   * Arvotaan pommit - tehty
     - Näkyvissä olevat pommit - tehty
     - Ruudun viereisten pommien lukumäärä laskettu valmiiksi - tehty
-    - Pommien etsintä,
-    - Aluksi tyhjä alue 0 on klikkailtava itse auki    - Algoritmi tyhjän alueen  näyttämiseen
+    - Pommien etsintä - tehty
+    - Aluksi tyhjä alue 0 on klikkailtava itse auki - tehty
+    - Algoritmi tyhjän alueen näyttämiseen - tehty
 
 * Ajanmittaus
 
