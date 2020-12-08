@@ -65,8 +65,6 @@ public class UserInterface extends Application {
     private GameLogic createNewGame(int n) {
         return new GameLogic(n);
     }
-    
-    
 
     private GridPane openMinePane(GameLogic gLogic) {
         GridPane gamePane = new GridPane();
@@ -95,10 +93,15 @@ public class UserInterface extends Application {
     private Button buttonFactory(int y, int x, String name) {
         Button nButton = new Button(name);
         nButton.setOnAction((event) -> {
-            gameLogic.getPlayerField().setCell(y, x, gameLogic.getMineField().cell(y, x));
+            if (gameLogic.openPlayerCell(y, x) == 9) {
+                Scene showMineField = new Scene(openMinePane(gameLogic));
+                this.primaryStage.setScene(showMineField);
+            } else {
+//            gameLogic.getPlayerField().setCell(y, x, gameLogic.getMineField().cell(y, x));
 //            System.out.println(gameLogic.getPlayerField().checkCell(y, x));
-            Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));
-            this.primaryStage.setScene(showPlayerField);
+                Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));
+                this.primaryStage.setScene(showPlayerField);
+            }
         });
         return (nButton);
     }
