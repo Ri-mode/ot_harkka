@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package miinanraivaaja.logic;
-
+import miinanraivaaja.domain.Gametime;
 import miinanraivaaja.domain.Minefield;
 import miinanraivaaja.domain.Playerfield;
 
@@ -17,6 +17,9 @@ public class GameLogic {
     private int n;
     private Minefield mField;
     private Playerfield pField;
+    private Gametime gTime;
+    
+    
 
     /**
      * Konstruktori, jonka avulla voidaan luoda ennalta määritelty pelilogiikka
@@ -29,6 +32,7 @@ public class GameLogic {
     public GameLogic(Minefield mField, Playerfield pField, int n) {
         this.mField = mField;
         this.pField = pField;
+        this.gTime = new Gametime();
         this.n = n;
     }
 
@@ -41,10 +45,12 @@ public class GameLogic {
     public GameLogic(int n) {
         this.mField = new Minefield(n, n, n);
         this.pField = new Playerfield(n, n);
+        this.gTime = new Gametime();
         this.n = n;
         mField.scatterMines();
         mField.prepareField();
         pField.preparePlayerField();
+        gTime.startGame();
     }
 
     public int getN() {
@@ -73,6 +79,12 @@ public class GameLogic {
             if (pField.checkCell(y, x) == 0) {
                 openAround(y, x);
             }
+        }
+        System.out.println(pField.unOpenedCells());
+        if (pField.unOpenedCells() == n) {
+            gTime.endGame();
+            System.out.println("Kaikki löydetty. Aikaa kului: " 
+                    + Long.toString(gTime.totalGameTime()));
         }
         return pField.checkCell(y, x);
     }

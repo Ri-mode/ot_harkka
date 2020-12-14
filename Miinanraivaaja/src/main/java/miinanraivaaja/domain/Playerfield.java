@@ -44,4 +44,16 @@ public class Playerfield {
         }
     }
     
+    public int unOpenedCells() {
+        int unOpen = 0;
+        for (int j = 1; j < field.length - 1; j++) {
+            for (int i = 1; i < field[j].length - 1; i++) {
+                if(field[j][i] < 0) {
+                    unOpen++;
+                }
+            }
+        }
+        return unOpen;
+    }
+    
 }

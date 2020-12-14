@@ -44,6 +44,27 @@ public class PlayerfieldTest {
         pField.preparePlayerField();
         assertTrue(pField.checkCell(1, 1) == -1);
     }
+    
+    @Test
+    public void playerFieldPreparedHaveAllCellsUnOpened() {
+        Playerfield pField = new Playerfield(5, 5);
+        pField.preparePlayerField();
+        assertTrue(pField.unOpenedCells() == 25);
+    }
+    
+    @Test
+    public void unPreparedPlayerFieldHaveNonUnOpenedCells() {
+        Playerfield pField = new Playerfield(8, 8);
+        assertTrue(pField.unOpenedCells() == 0);
+    }
+    
+    @Test
+    public void flaggedCellsAreUnopened() {
+        Playerfield pField = new Playerfield(7, 7);
+        pField.preparePlayerField();
+        pField.flagCellMine(1, 1);
+        assertTrue(pField.unOpenedCells() == 49);
+    }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
