@@ -1,4 +1,3 @@
-
 package miinanraivaaja.domain;
 
 import java.util.Random;
@@ -19,7 +18,7 @@ public class Minefield {
         this.field = new int[y + 2][x + 2];
         this.mines = mines;
     }
-    
+
     public Minefield(int[][] yx, int mines) {
         this.field = yx;
         this.mines = mines;
@@ -30,7 +29,6 @@ public class Minefield {
      * todennäköisyydellä 0.95. Miinakenttää käydään läpi kunnes on pudotetty
      * oikea määrä miinoja.
      */
-    
     public void scatterMines() {
         Random rnd = new Random();
 
@@ -40,7 +38,7 @@ public class Minefield {
             for (int j = 1; j < field.length - 1; j++) {
                 for (int i = 1; i < field[j].length - 1; i++) {
                     if (field[j][i] == 0) {
-                        if (rnd.nextDouble() > 0.95) {
+                        if (rnd.nextDouble() > 0) { // 0.95
                             if (minesToDrop > 0) {
                                 field[j][i] = 9;
                                 minesToDrop--;
@@ -51,13 +49,12 @@ public class Minefield {
             }
         }
     }
-    
-    /**
-     * Metodi käy läpi miinakentän miinattomat ruudut ja laskee 
-     * countNearByMines-metodin avulla ruudun viereisissä ruuduissa
-     * olevien miinojen lukumäärän miinakentälle.
-     */
 
+    /**
+     * Metodi käy läpi miinakentän miinattomat ruudut ja laskee
+     * countNearByMines-metodin avulla ruudun viereisissä ruuduissa olevien
+     * miinojen lukumäärän miinakentälle.
+     */
     public void prepareField() {
         for (int j = 1; j < field.length - 1; j++) {
             for (int i = 1; i < field[j].length - 1; i++) {
@@ -70,7 +67,7 @@ public class Minefield {
 
     /**
      * Metodi laskee ruudun viereisissä ruuduissa olevien miinojen lukumäärän.
-     * 
+     *
      * @param y Ruudun sarake
      * @param x Ruudun rivi
      * @return viereisten miinojen lukumäärä
@@ -94,12 +91,12 @@ public class Minefield {
     public int getAmmount() {
         return mines;
     }
-    
+
     /**
      * Metodilla verrataan onko kahdella miinakentällä yhtä monta miinaa.
-     * 
-     * @param obj 
-     * @return 
+     *
+     * @param obj
+     * @return
      */
     @Override
     public boolean equals(Object obj) {

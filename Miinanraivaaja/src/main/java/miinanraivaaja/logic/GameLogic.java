@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package miinanraivaaja.logic;
-import miinanraivaaja.domain.Gametime;
+import miinanraivaaja.dao.MiinanraivaajaDao;
+import miinanraivaaja.domain.Gamedata;
 import miinanraivaaja.domain.Minefield;
 import miinanraivaaja.domain.Playerfield;
 
@@ -17,10 +18,9 @@ public class GameLogic {
     private int n;
     private Minefield mField;
     private Playerfield pField;
-    private Gametime gTime;
+    private Gamedata gData;
+    private MiinanraivaajaDao newDao;
     
-    
-
     /**
      * Konstruktori, jonka avulla voidaan luoda ennalta määritelty pelilogiikka
      * testejä varten.
@@ -32,7 +32,8 @@ public class GameLogic {
     public GameLogic(Minefield mField, Playerfield pField, int n) {
         this.mField = mField;
         this.pField = pField;
-        this.gTime = new Gametime();
+        this.gData = new Gamedata();
+        this.newDao = new MiinanraivaajaDao();
         this.n = n;
     }
 
@@ -45,12 +46,13 @@ public class GameLogic {
     public GameLogic(int n) {
         this.mField = new Minefield(n, n, n);
         this.pField = new Playerfield(n, n);
-        this.gTime = new Gametime();
+        this.gData = new Gamedata();
+        this.newDao = new MiinanraivaajaDao();
         this.n = n;
         mField.scatterMines();
         mField.prepareField();
         pField.preparePlayerField();
-        gTime.startGame();
+        gData.startGame();
     }
 
     public int getN() {
@@ -82,9 +84,10 @@ public class GameLogic {
         }
         System.out.println(pField.unOpenedCells());
         if (pField.unOpenedCells() == n) {
-            gTime.endGame();
+            gData.endGame();
             System.out.println("Kaikki löydetty. Aikaa kului: " 
-                    + Long.toString(gTime.totalGameTime()));
+                    + Long.toString(gData.totalGameTime()));
+            newDao.saveToFile(gData);
         }
         return pField.checkCell(y, x);
     }
