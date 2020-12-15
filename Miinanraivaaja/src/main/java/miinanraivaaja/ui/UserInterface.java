@@ -148,7 +148,7 @@ public class UserInterface extends Application {
             if (event.getButton() == MouseButton.SECONDARY) {
                 if (gameLogic.getPlayerField().checkCell(y, x) == -1) {
                     gameLogic.getPlayerField().flagCellMine(y, x);
-                } else if (gameLogic.getPlayerField().checkCell(y, x) == -2) {
+                } else if (gameLogic.getPlayerField().checkCell(y, x) == -9) {
                     gameLogic.getPlayerField().unflagCellMine(y, x);
                 }
                 Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));

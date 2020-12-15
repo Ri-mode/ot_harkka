@@ -51,7 +51,7 @@ public class Playerfield {
      * @param x Ruudun rivi
      */
     public void flagCellMine(int y, int x) {
-        field[y][x] = -2;
+        field[y][x] = -9;
     }
 
     /**
