@@ -15,7 +15,7 @@ import miinanraivaaja.domain.Playerfield;
  * miinakenttiä.
  */
 public class GameLogic {
-    
+
     private int n;
     private Minefield mField;
     private Playerfield pField;
@@ -55,15 +55,15 @@ public class GameLogic {
         pField.preparePlayerField();
         gData.startGame();
     }
-    
+
     public int getN() {
         return this.n;
     }
-    
+
     public Playerfield getPlayerField() {
         return this.pField;
     }
-    
+
     public Minefield getMineField() {
         return this.mField;
     }
@@ -85,10 +85,12 @@ public class GameLogic {
         }
         System.out.println(pField.unOpenedCells());
         if (pField.unOpenedCells() == n) {
-            gData.endGame();
-            System.out.println("Kaikki löydetty. Aikaa kului: "
-                    + Long.toString(gData.totalGameTime()));
-            newDao.saveToFile(gData);
+            if (gData.getEndTime() == 0) {
+                gData.endGame();
+                System.out.println("Kaikki löydetty. Aikaa kului: "
+                        + Long.toString(gData.totalGameTime()));
+                newDao.saveToFile(gData);
+            }
         }
         return pField.checkCell(y, x);
     }

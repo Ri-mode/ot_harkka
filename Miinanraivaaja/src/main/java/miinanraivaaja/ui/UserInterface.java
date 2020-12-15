@@ -89,7 +89,9 @@ public class UserInterface extends Application {
         GridPane gamePane = new GridPane();
         for (int j = 1; j <= gLogic.getN(); j++) {
             for (int i = 1; i <= gLogic.getN(); i++) {
-                gamePane.add(new Button(Integer.toString(gLogic.getMineField().cell(j, i))), j, i);
+                Button nButton = new Button(Integer.toString(gLogic.getMineField().cell(j, i)));
+                nButton.setPrefSize(30, 30);
+                gamePane.add(nButton, j, i);
             }
         }
         gamePane.setGridLinesVisible(true);
@@ -109,6 +111,7 @@ public class UserInterface extends Application {
             for (int i = 1; i <= gLogic.getN(); i++) {
                 String bName = Integer.toString(gLogic.getPlayerField().checkCell(j, i));
                 Button nButton = buttonFactory(j, i, bName);
+                nButton.setPrefSize(30, 30);
                 playerPane.add(nButton, j, i);
             }
         }
@@ -127,7 +130,7 @@ public class UserInterface extends Application {
      */
     private Button buttonFactory(int y, int x, String name) {
         Button nButton = new Button(name);
-        nButton.setPrefSize(30, 30);
+//        nButton.setPrefSize(30, 30);
         nButton.setOnMouseClicked((event) -> {
             if (event.getButton() == MouseButton.PRIMARY) {
                 if (gameLogic.getPlayerField().checkCell(y, x) == -1) {

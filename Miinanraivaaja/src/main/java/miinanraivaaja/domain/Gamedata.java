@@ -22,6 +22,10 @@ public class Gamedata {
     public String getPlayerName() {
         return this.playerName;
     }
+    
+    public long getEndTime() {
+        return this.endTime;
+    }
 
     public void startGame() {
         this.startTime = System.currentTimeMillis();
