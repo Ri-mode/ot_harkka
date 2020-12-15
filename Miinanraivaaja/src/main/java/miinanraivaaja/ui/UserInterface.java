@@ -8,6 +8,7 @@ package miinanraivaaja.ui;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -26,11 +27,12 @@ public class UserInterface extends Application {
     public void init() {
 
     }
+
     /**
      * JavaFX:n avulla toteutettu graafinen käyttöliittymä.
-     * 
+     *
      * @param primaryStage Käyttöliittymän perusnäkymä
-     * 
+     *
      */
     @Override
     public void start(Stage primaryStage) {
@@ -64,13 +66,13 @@ public class UserInterface extends Application {
         this.primaryStage.setScene(primaryScene);
         this.primaryStage.show();
     }
-    
+
     /**
      * Metodi uuden pelilogiikan luontiin.
-     * 
+     *
      * @param n Pelialueen mitat ja pommien lukumäärä
-     * 
-     * @return uusi pelilogiikka 
+     *
+     * @return uusi pelilogiikka
      */
     private GameLogic createNewGame(int n) {
         return new GameLogic(n);
@@ -78,9 +80,9 @@ public class UserInterface extends Application {
 
     /**
      * Metodi miinakentän näyttämiseen alkuvalikossa.
-     * 
+     *
      * @param gLogic Meneillään olevan pelin pelilogiikka
-     * 
+     *
      * @return miinakenttä GridPanena
      */
     private GridPane openMinePane(GameLogic gLogic) {
@@ -93,12 +95,12 @@ public class UserInterface extends Application {
         gamePane.setGridLinesVisible(true);
         return gamePane;
     }
-    
+
     /**
      * Metodi pelaajanäkymän esittämiseen GridPane oliona.
-     * 
+     *
      * @param gLogic Meneillään olevan pelin pelilogiikka
-     * 
+     *
      * @return pelaajanäkyä GridPanena
      */
     private GridPane drawPlayerPane(GameLogic gLogic) {
@@ -113,11 +115,11 @@ public class UserInterface extends Application {
         playerPane.setGridLinesVisible(true);
         return playerPane;
     }
-    
+
     /**
      * Metodi pelaajakentän nappien luomiseen ja toiminnallisuuden
      * toteuttamiseen.
-     * 
+     *
      * @param y Napin sarake
      * @param x Napin rivi
      * @param name Napin nimi
@@ -125,13 +127,27 @@ public class UserInterface extends Application {
      */
     private Button buttonFactory(int y, int x, String name) {
         Button nButton = new Button(name);
-        nButton.setOnAction((event) -> {
-            if (gameLogic.openPlayerCell(y, x) == 9) {
-                Scene showMineField = new Scene(openMinePane(gameLogic));
-                this.primaryStage.setScene(showMineField);
-            } else {
+        nButton.setPrefSize(30, 30);
+        nButton.setOnMouseClicked((event) -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
+                if (gameLogic.getPlayerField().checkCell(y, x) == -1) {
+                    if (gameLogic.openPlayerCell(y, x) == 9) {
+                        Scene showMineField = new Scene(openMinePane(gameLogic));
+                        this.primaryStage.setScene(showMineField);
+                    } else {
 //            gameLogic.getPlayerField().setCell(y, x, gameLogic.getMineField().cell(y, x));
 //            System.out.println(gameLogic.getPlayerField().checkCell(y, x));
+                        Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));
+                        this.primaryStage.setScene(showPlayerField);
+                    }
+                }
+            }
+            if (event.getButton() == MouseButton.SECONDARY) {
+                if (gameLogic.getPlayerField().checkCell(y, x) == -1) {
+                    gameLogic.getPlayerField().flagCellMine(y, x);
+                } else if (gameLogic.getPlayerField().checkCell(y, x) == -2) {
+                    gameLogic.getPlayerField().unflagCellMine(y, x);
+                }
                 Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));
                 this.primaryStage.setScene(showPlayerField);
             }

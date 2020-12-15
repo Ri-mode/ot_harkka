@@ -26,16 +26,19 @@ public class Playerfield {
     public void flagCellMine(int y, int x) {
         field[y][x] = -2;
     }
-    
+
+    public void unflagCellMine(int y, int x) {
+        field[y][x] = -1;
+    }
+
     /**
-     * Metodi alustaa pelaajakentän pelialueen, jotta voidaan seurata
-     * pelajaan toimia.
-     * 
-     * @param   pelialue  Pelialueen valmistelu
-     * 
+     * Metodi alustaa pelaajakentän pelialueen, jotta voidaan seurata pelajaan
+     * toimia.
+     *
+     * @param pelialue Pelialueen valmistelu
+     *
      * @return pelialueen valmistelu
      */
-    
     public void preparePlayerField() {
         for (int j = 1; j < field.length - 1; j++) {
             for (int i = 1; i < field[j].length - 1; i++) {
@@ -43,17 +46,17 @@ public class Playerfield {
             }
         }
     }
-    
+
     public int unOpenedCells() {
         int unOpen = 0;
         for (int j = 1; j < field.length - 1; j++) {
             for (int i = 1; i < field[j].length - 1; i++) {
-                if(field[j][i] < 0) {
+                if (field[j][i] < 0) {
                     unOpen++;
                 }
             }
         }
         return unOpen;
     }
-    
+
 }
