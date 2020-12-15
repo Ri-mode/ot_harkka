@@ -78,7 +78,7 @@ public class GameLogic {
      */
     public int openPlayerCell(int y, int x) {
         if (pField.checkCell(y, x) == -1) {
-            pField.setCell(y, x, mField.cell(y, x));
+            pField.setCell(y, x, mField.mineCell(y, x));
             if (pField.checkCell(y, x) == 0) {
                 openAround(y, x);
             }
@@ -99,8 +99,8 @@ public class GameLogic {
      * Metodi avaa yhdessä openPlayerCell-metodin kanssa rekursiivisesti ruudut,
      * joiden vieressä ei ole yhtään miinaa.
      *
-     * @param y Ruudun sarake
-     * @param x Ruudun rivi
+     * @param y Ruudun sarakeiden lukumäärä
+     * @param x Ruudun rivien lukumäärä
      */
     public void openAround(int y, int x) {
         for (int j = y - 1; j < y + 2; j++) {

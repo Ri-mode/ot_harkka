@@ -1,4 +1,3 @@
-
 package miinanraivaaja.dao;
 
 import com.google.gson.Gson;
@@ -9,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,13 +18,18 @@ import miinanraivaaja.domain.Gamedata;
  * Luokka huippuaikojen pysyväistallennukseen.
  */
 public class MiinanraivaajaDao {
-    
+
     String filePath = "./Highscores";
     Gson gson = new Gson();
     List<Gamedata> highscores;
     File newFile;
     Scanner scanner;
-    
+
+    /**
+     * Metodi yhden pelin tietojen tiedostoon tallentamiseen.
+     *
+     * @param gData pelin tiedot
+     */
     public void saveToFile(Gamedata gData) {
         if (newFile == null) {
             createFile();
@@ -35,31 +40,32 @@ public class MiinanraivaajaDao {
         } else {
             highscores = readFromFile();
             highscores.add(gData);
+            Collections.sort(highscores);
         }
         String output = gson.toJson(highscores);
         writeToFile(output);
     }
-    
+
+    /**
+     * Metodi lukee tiedostosta talletettujen pelien tulokset.
+     *
+     * @return lista aiempien pelien tuloksista
+     */
     public List<Gamedata> readFromFile() {
         String text = "";
         List<Gamedata> fileContent = new ArrayList<>();
-        
         try {
             FileInputStream input = new FileInputStream(filePath + ".txt");
             scanner = new Scanner(input);
-            
-            if (!scanner.hasNextLine()) {
-                return fileContent;
-            }
+//            if (!scanner.hasNextLine()) {
+//                return fileContent;
+//            }
             while (scanner.hasNextLine()) {
-                String more = scanner.nextLine();
-                text = text + more;
+                text = text + scanner.nextLine();
             }
             scanner.close();
-            
             fileContent = gson.fromJson(text, new TypeToken<List<Gamedata>>() {
             }.getType());
-            
             input.close();
         } catch (FileNotFoundException e) {
             fileContent = new ArrayList<>();
@@ -68,7 +74,12 @@ public class MiinanraivaajaDao {
         }
         return fileContent;
     }
-    
+
+    /**
+     * Metodi huipputulosten teidostoon kirjoittamiseen.
+     *
+     * @param text tulokset tekstinä
+     */
     public void writeToFile(String text) {
         FileWriter fileWriter;
         try {
@@ -80,7 +91,10 @@ public class MiinanraivaajaDao {
             System.out.println("Virhe: " + e.getMessage());
         }
     }
-    
+
+    /**
+     * Apumetodi puuttuvan tallennus tiedoston luomiseksi.
+     */
     public void createFile() {
         newFile = new File(filePath + ".txt");
         try {
@@ -89,4 +103,5 @@ public class MiinanraivaajaDao {
             System.out.println("Virhe: " + e.getMessage());
         }
     }
+
 }

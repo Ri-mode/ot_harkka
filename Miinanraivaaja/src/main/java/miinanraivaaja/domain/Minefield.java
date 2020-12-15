@@ -12,6 +12,14 @@ public class Minefield {
     private int mines;
     private int[][] field;
 
+    /**
+     * Konstruktori Minefield luokalle, jolla saa luotua tietyn kokoisen ja
+     * tietyn miina määrän miinakentän.
+     *
+     * @param y Miinakentän sarakkeiden lukumäärä
+     * @param x Miinakentän rivien lukumäärä
+     * @param mines Miinakentän miinojen lukumäärä
+     */
     public Minefield(int y, int x, int mines) {
 //        this.x = x;
 //        this.y = y;
@@ -19,6 +27,13 @@ public class Minefield {
         this.mines = mines;
     }
 
+    /**
+     * Konstruktori Minefield luokalle, jolla saa luotua testejä varten
+     * valmiiksi määritellyn kokoisen miinakentän.
+     *
+     * @param yx Miinakenttä valmiiksi määriteltynä kaksiulotteisena taulukkona
+     * @param mines Miinakentän miinojen lukumäärä
+     */
     public Minefield(int[][] yx, int mines) {
         this.field = yx;
         this.mines = mines;
@@ -38,7 +53,7 @@ public class Minefield {
             for (int j = 1; j < field.length - 1; j++) {
                 for (int i = 1; i < field[j].length - 1; i++) {
                     if (field[j][i] == 0) {
-                        if (rnd.nextDouble() > 0.95) { // 0.95
+                        if (rnd.nextDouble() > 0) { // 0.95
                             if (minesToDrop > 0) {
                                 field[j][i] = 9;
                                 minesToDrop--;
@@ -84,23 +99,18 @@ public class Minefield {
         return nearByMines;
     }
 
-    public int cell(int y, int x) {
+    /**
+     * Metodi palauttaa miinakentän arvon tietyssä ruudussa.
+     *
+     * @param y Miinakentän sarake
+     * @param x Miinakentän rivi
+     * @return miinakentän ruudun arvo, joko 9 miina tai montako miinaa ympärillä
+     */
+    public int mineCell(int y, int x) {
         return field[y][x];
     }
 
     public int getAmmount() {
         return mines;
-    }
-
-    /**
-     * Metodilla verrataan onko kahdella miinakentällä yhtä monta miinaa.
-     *
-     * @param obj
-     * @return
-     */
-    @Override
-    public boolean equals(Object obj) {
-        Minefield other = (Minefield) obj;
-        return mines == other.getAmmount();
     }
 }

@@ -89,8 +89,8 @@ public class UserInterface extends Application {
         GridPane gamePane = new GridPane();
         for (int j = 1; j <= gLogic.getN(); j++) {
             for (int i = 1; i <= gLogic.getN(); i++) {
-                Button nButton = new Button(Integer.toString(gLogic.getMineField().cell(j, i)));
-                nButton.setPrefSize(30, 30);
+                Button nButton = new Button(Integer.toString(gLogic.getMineField().mineCell(j, i)));
+                nButton.setPrefSize(35, 35);
                 gamePane.add(nButton, j, i);
             }
         }
@@ -111,7 +111,7 @@ public class UserInterface extends Application {
             for (int i = 1; i <= gLogic.getN(); i++) {
                 String bName = Integer.toString(gLogic.getPlayerField().checkCell(j, i));
                 Button nButton = buttonFactory(j, i, bName);
-                nButton.setPrefSize(30, 30);
+                nButton.setPrefSize(35, 35);
                 playerPane.add(nButton, j, i);
             }
         }
@@ -138,7 +138,7 @@ public class UserInterface extends Application {
                         Scene showMineField = new Scene(openMinePane(gameLogic));
                         this.primaryStage.setScene(showMineField);
                     } else {
-//            gameLogic.getPlayerField().setCell(y, x, gameLogic.getMineField().cell(y, x));
+//            gameLogic.getPlayerField().setCell(y, x, gameLogic.getMineField().mineCell(y, x));
 //            System.out.println(gameLogic.getPlayerField().checkCell(y, x));
                         Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));
                         this.primaryStage.setScene(showPlayerField);
