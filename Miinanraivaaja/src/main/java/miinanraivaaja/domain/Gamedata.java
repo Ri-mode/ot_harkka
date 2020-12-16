@@ -66,4 +66,9 @@ public class Gamedata implements Comparable<Gamedata> {
             return -1;
         }
     }
+    
+    @Override
+    public String toString() {
+        return playerName;
+    }
 }

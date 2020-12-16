@@ -35,7 +35,7 @@ public class MiinanraivaajaDao {
             createFile();
         }
         if (readFromFile() == null) {
-            highscores = new ArrayList<Gamedata>();
+            highscores = new ArrayList<>();
             highscores.add(gData);
         } else {
             highscores = readFromFile();
@@ -76,7 +76,7 @@ public class MiinanraivaajaDao {
     }
 
     /**
-     * Metodi huipputulosten teidostoon kirjoittamiseen.
+     * Metodi huipputulosten tiedostoon kirjoittamiseen.
      *
      * @param text tulokset tekstinä
      */

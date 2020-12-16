@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package miinanraivaaja.ui;
 
 import javafx.application.Application;
@@ -39,28 +34,33 @@ public class UserInterface extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Miinanraivaaja");
 
-        this.gameLogic = this.createNewGame(10);
+        this.gameLogic = this.createNewGame(8);
 
         BorderPane primaryPane = new BorderPane();
 
         HBox buttons = new HBox();
 
-        Button startGame = new Button("Aloita peli");
-        Button showMines = new Button("Näytä miinat");
+        Button startGame = new Button("Aloita kilpapeli");
+        Button showMines = new Button("Aloita vapaapeli");
 
         buttons.getChildren().add(startGame);
         buttons.getChildren().add(showMines);
 
-        GridPane gamePane = drawPlayerPane(gameLogic);
+//        GridPane gamePane = drawPlayerPane(gameLogic);
 
         primaryPane.setTop(buttons);
-        primaryPane.setCenter(gamePane);
+//        primaryPane.setCenter(gamePane);
 
         Scene primaryScene = new Scene(primaryPane);
 
         showMines.setOnAction((event) -> {
             Scene showMineField = new Scene(openMinePane(gameLogic));
             this.primaryStage.setScene(showMineField);
+        });
+        
+        startGame.setOnAction((event) -> {
+            Scene drawPlayerField = new Scene (drawPlayerPane(gameLogic));
+            this.primaryStage.setScene(drawPlayerField);
         });
 
         this.primaryStage.setScene(primaryScene);
@@ -130,7 +130,6 @@ public class UserInterface extends Application {
      */
     private Button buttonFactory(int y, int x, String name) {
         Button nButton = new Button(name);
-//        nButton.setPrefSize(30, 30);
         nButton.setOnMouseClicked((event) -> {
             if (event.getButton() == MouseButton.PRIMARY) {
                 if (gameLogic.getPlayerField().checkCell(y, x) == -1) {
@@ -138,8 +137,6 @@ public class UserInterface extends Application {
                         Scene showMineField = new Scene(openMinePane(gameLogic));
                         this.primaryStage.setScene(showMineField);
                     } else {
-//            gameLogic.getPlayerField().setCell(y, x, gameLogic.getMineField().mineCell(y, x));
-//            System.out.println(gameLogic.getPlayerField().checkCell(y, x));
                         Scene showPlayerField = new Scene(drawPlayerPane(gameLogic));
                         this.primaryStage.setScene(showPlayerField);
                     }
