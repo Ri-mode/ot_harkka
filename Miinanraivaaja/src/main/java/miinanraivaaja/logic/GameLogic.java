@@ -50,7 +50,6 @@ public class GameLogic {
         pField.preparePlayerField();
         gData.startGame();
     }
-    
 
     public int getN() {
         return this.n;
@@ -86,6 +85,9 @@ public class GameLogic {
                 System.out.println("Kaikki löydetty. Aikaa kului: "
                         + Long.toString(gData.totalGameTime()));
                 newDao.saveToFile(gData);
+                for (int i = 0; i < newDao.listHighscores().size(); i++) {
+                    System.out.println(newDao.listHighscores().get(i));
+                }
             }
         }
         return pField.checkCell(y, x);

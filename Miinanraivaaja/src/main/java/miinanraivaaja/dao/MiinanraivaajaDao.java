@@ -104,4 +104,17 @@ public class MiinanraivaajaDao {
         }
     }
 
+    public List<String> listHighscores() {
+        List<String> listTop10 = new ArrayList<>();
+        if (this.highscores == null) {
+            listTop10.add("Ei vielä huipputuloksia");
+        } else {
+            listTop10.add("Parhaat tulokset:");
+            for (int i = 0; i < highscores.size() && i < 10; i++) {
+                listTop10.add(Integer.toString(i + 1) + ": " + highscores.get(i).toString());
+            }
+        }
+        return listTop10;
+    }
+
 }

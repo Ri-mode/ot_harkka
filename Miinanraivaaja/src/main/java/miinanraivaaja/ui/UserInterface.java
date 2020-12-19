@@ -34,7 +34,7 @@ public class UserInterface extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Miinanraivaaja");
 
-        this.gameLogic = this.createNewGame(8);
+        this.gameLogic = this.createNewGame(10);
 
         BorderPane primaryPane = new BorderPane();
 

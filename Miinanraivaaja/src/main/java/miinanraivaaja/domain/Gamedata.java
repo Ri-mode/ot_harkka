@@ -1,7 +1,5 @@
 package miinanraivaaja.domain;
 
-import java.lang.System;
-
 /**
  * Luokka tarjoaa Gamedata-olion peliajan mittaamiseen ja laskemiseen.
  */
@@ -69,6 +67,6 @@ public class Gamedata implements Comparable<Gamedata> {
     
     @Override
     public String toString() {
-        return playerName;
+        return playerName + " " + Long.toString(this.totalGameTime()/1000)+"s.";
     }
 }
