@@ -26,6 +26,13 @@ public class MiinanraivaajaDao {
     private Scanner scanner;
 
     /**
+     * Setteri testitiedoston nimeämiseen.
+     */
+    public void setTestfilePath() {
+        this.filePath = "./Testscores";
+    }
+
+    /**
      * Metodi yhden pelin tietojen tiedostoon tallentamiseen.
      *
      * @param gData pelin tiedot
