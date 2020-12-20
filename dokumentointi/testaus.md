@@ -2,6 +2,7 @@
 Ohjelmaa on testattu yksikkö- ja integraatiotesteillä. 
 
 ### Jacocon testausraportti
+![Jacoco](/dokumentointi/Jacoco.jpg)
 
 
 # Tiedossa oleva ongelma
