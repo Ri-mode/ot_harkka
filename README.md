@@ -13,11 +13,14 @@ Miinakentän avaamattomat ruudut on merkitty numerolla -1 ja ne on avattavissa h
 
 [Sovelluksen koodi](https://github.com/Ri-mode/ot_harkka/tree/master/Miinanraivaaja)
 
+## Dokumentointi
 [Sovelluksen Vaatimusmäärittely](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/vaatimusmaarittely.md)
 
 [Sovelluksen käyttöohje](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/kayttoohje.md)
 
 [Sovelluksen arkkitehtuuri](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/arkkitehtuuri.md)
+
+[Sovelluksen testausraportti](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/testaus.md)
 
 [Työaikakirjanpito](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/tuntikirjanpito.md)
 
