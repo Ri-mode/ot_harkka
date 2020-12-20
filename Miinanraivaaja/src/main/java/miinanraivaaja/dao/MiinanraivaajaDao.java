@@ -19,11 +19,11 @@ import miinanraivaaja.domain.Gamedata;
  */
 public class MiinanraivaajaDao {
 
-    String filePath = "./Highscores";
-    Gson gson = new Gson();
-    List<Gamedata> highscores;
-    File newFile;
-    Scanner scanner;
+    private String filePath = "./Highscores";
+    private Gson gson = new Gson();
+    private List<Gamedata> highscores;
+    private File newFile;
+    private Scanner scanner;
 
     /**
      * Metodi yhden pelin tietojen tiedostoon tallentamiseen.
@@ -104,9 +104,15 @@ public class MiinanraivaajaDao {
         }
     }
 
+    /**
+     * Metodi parhaiden talletettujen tulosten palauttamiseen.
+     *
+     * @return tekstilista max 10 parhaan pelin tuloksesta
+     */
     public List<String> listHighscores() {
         List<String> listTop10 = new ArrayList<>();
-        if (this.highscores == null) {
+        highscores = this.readFromFile();
+        if (highscores == null || highscores.size() == 0) {
             listTop10.add("Ei vielä huipputuloksia");
         } else {
             listTop10.add("Parhaat tulokset:");

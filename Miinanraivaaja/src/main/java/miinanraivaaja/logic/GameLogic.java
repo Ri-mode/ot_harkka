@@ -1,5 +1,6 @@
 package miinanraivaaja.logic;
 
+import java.util.List;
 import miinanraivaaja.dao.MiinanraivaajaDao;
 import miinanraivaaja.domain.Gamedata;
 import miinanraivaaja.domain.Minefield;
@@ -63,6 +64,10 @@ public class GameLogic {
         return this.mField;
     }
 
+    public List<String> getTop10() {
+        return this.newDao.listHighscores();
+    }
+
     /**
      * Metodi avaa pelaajakentän ruudun ja palauttaa siihen miinakentältä
      * tulleen viereisten miinojen määrän (0-8) tai miinan (9).
@@ -78,15 +83,11 @@ public class GameLogic {
                 openAround(y, x);
             }
         }
-        System.out.println(pField.unOpenedCells());
         if (pField.unOpenedCells() == n) {
             if (gData.getEndTime() == 0) {
                 gData.endGame();
-                System.out.println("Kaikki löydetty. Aikaa kului: "
-                        + Long.toString(gData.totalGameTime()));
-                newDao.saveToFile(gData);
-                for (int i = 0; i < newDao.listHighscores().size(); i++) {
-                    System.out.println(newDao.listHighscores().get(i));
+                if (pField.unOpenedCells() == n && this.n == 10) {
+                    newDao.saveToFile(gData);
                 }
             }
         }
