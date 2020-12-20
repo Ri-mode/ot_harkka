@@ -19,28 +19,31 @@ Miinakentän avaamattomat ruudut on merkitty numerolla -1. Miinakentän pommitto
 [Työaikakirjanpito](https://github.com/Ri-mode/ot_harkka/blob/master/dokumentointi/tuntikirjanpito.md)
 
 ## Ohjeet
-Seuraavat /Miinanraivaaja -hakemistossa:
+### Seuraavat /Miinanraivaaja -hakemistossa:
 
-Ohjelman ajaminen:
+### Ohjelman ajaminen:
 
+```
 mvn compile exec:java -Dexec.mainClass=miinanraivaaja.ui.Miinanraivaaja
+```
+### Jar-tiedoston generointi hakemistoon /target/
 
-Jar-tiedoston generointi hakemistoon /target/
-
+```
 mvn package
-
-Ohjelman testaus:
-
+```
+### Ohjelman testaus:
+```
 mvn test
-
-Jacoco -testiraportin luonti hakemistoon /target/site/jacoco/
-
+```
+### Jacoco -testiraportin luonti hakemistoon /target/site/jacoco/
+```
 mvn test jacoco:report
-
-Checkstyle -testiraportin luonti hakemistoon /target/site/
-
+```
+### Checkstyle -testiraportin luonti hakemistoon /target/site/
+```
 mvn test checkstyle:checkstyle
-
-Javadoc-ohjeen luonti:
-
+```
+### Javadoc-ohjeen luonti:
+```
 mvn javadoc:javadoc
+```
