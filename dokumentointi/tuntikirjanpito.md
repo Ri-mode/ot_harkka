@@ -15,4 +15,10 @@
 |  4.12  |  1   | Testeihin lisää haarautumiskattavuutta |
 |  6.12  |  3   | Pelilogiikan omaksi luokakseen refraktoroinnin aloitus |
 |  8.12  | 10   | Refraktorointia, interaktiivisuutta, pelilogiikka toimii, lisää testejä, Github repon kunnostusta |
-| yht.   | 55   | |
+| 14.12  |  4   | Avaamattomien ruutujen laskenta, peliaika lisätty |
+| 15.12  |  6   | Tallennus Gson-tiedostoksi lisätty, UI-viilausta, Javadoc kuntoon Checkstylen osalta, lipun muero muutettu -9 |
+| 16.12  |  2   | UI uudelleen rakennusta |
+| 18.12  |  8   | Tiedoston verkkoon tallentaminen ei vaan onnistunut |
+| 19.12  |  3   | Ensimmäinen versio high score -listasta |
+| 20.12  | 12   | Peli pelattavaan kuntoon ja palautukseen viimeistely. Version 1.0 julkaisu GitHubissa. |
+| yht.   | 80   | |
