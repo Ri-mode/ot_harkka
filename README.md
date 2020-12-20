@@ -2,7 +2,10 @@
 
 Sovellus on legendaarinen Minesweeper-peli. Sovellusta on mahdollista käyttää Linux-ympäristössä Java 11 versiolla. 
 
-Miinakentän avaamattomat ruudut on merkitty numerolla -1. Miinakentän pommittomat ruudut ovat numerolla 0-8 sen mukaan montako pomia ruudun ympärillä on. Joudut vielä muistamaan missä miinat ovat. Jatkossa epäillyt miinat voi merkitä lipulla (-2). Peliin lisätään pari suurempaa kenttää ja ajanotto. 
+Miinakentän avaamattomat ruudut on merkitty numerolla -1 ja ne on avattavissa hiiren vasemmalla napilla. Miinakentän miinattomat ruudut ovat numerolla 0-8 sen mukaan montako miinaa ruudun ympärillä on. Voit lisätä avaamattomaan ruutuun "lipun" -9 hiiren oikealla napilla ja poistaa lipun toistamiseen hiiren oikeaa nappia painamalla. Kilpapelissä on ajanotto ja huipputulokset kirjataan TOP 10 -listalle. Isossa kentässä ei ole ajanottoa. 
+
+## Releaset
+[Lppupalautus versio 1.0](https://github.com/Ri-mode/ot_harkka/releases/tag/Loppupalautus)
 
 [Viikon 6 Release](https://github.com/Ri-mode/ot_harkka/releases/tag/viikko6)
 
