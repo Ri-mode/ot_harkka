@@ -53,7 +53,7 @@ public class Minefield {
             for (int j = 1; j < field.length - 1; j++) {
                 for (int i = 1; i < field[j].length - 1; i++) {
                     if (field[j][i] == 0) {
-                        if (rnd.nextDouble() > 0) { // 0.95 or 0 for testing
+                        if (rnd.nextDouble() > 0.95) { // 0.95 or 0 for testing
                             if (minesToDrop > 0) {
                                 field[j][i] = 9;
                                 minesToDrop--;
